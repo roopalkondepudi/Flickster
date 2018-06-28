@@ -115,6 +115,7 @@ public class MovieListActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     config = new Config(response);
+                    adapter.setConfig(config);
                     Log.i(TAG, String.format("Loaded configuration with imageBaseURL %s and posterSize %s", config.getBaseUrl(), config.getPosterSize()));
                     getNowPlaying();
                 } catch (JSONException e) {

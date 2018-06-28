@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.roopalk.flickster.models.Config;
 import com.example.roopalk.flickster.models.Movie;
 
@@ -29,7 +30,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
         this.movies = movies;
     }
 
-    public MovieAdapter(Config config) {
+    public void setConfig (Config config) {
         this.config = config;
     }
 
@@ -58,8 +59,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
         String imageURL = config.getImageURL(config.getPosterSize(), movie.getPosterPath());
 
         //load image using GLIDe
-        Glide.with(context)
+        GlideApp.with(context)
                 .load(imageURL)
+                .apply(new RequestOptions().bitmapTransform(new RoundedCorners(20)))
+                .placeholder(R.drawable.flicks_movie_placeholder)
+                .error(R.drawable.flicks_movie_placeholder)
                 .into(holder.posterImage);
     }
 
