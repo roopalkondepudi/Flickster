@@ -16,18 +16,20 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/backdrop_image"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/flicks_backdrop_placeholder" android:paddingEnd="5dp"/>
+        app:srcCompat="@drawable/flicks_backdrop_placeholder" android:paddingEnd="5dp" />
 
     <TextView
         android:id="@+id/movieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/backdropimage"
         android:layout_toRightOf="@+id/backdropimage"
+        android:text="@string/movie_title"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:text="@string/movie_title" android:layout_toEndOf="@+id/backdropimage"/>
+        android:textColor="@color/titleRed" />
 
     <TextView
         android:id="@+id/movieOverview"
@@ -36,5 +38,6 @@
         android:layout_below="@+id/movieTitle"
         android:layout_toEndOf="@+id/backdropimage"
         android:layout_toRightOf="@+id/backdropimage"
-        android:text="@string/movie_overview" />
+        android:text="@string/movie_overview"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

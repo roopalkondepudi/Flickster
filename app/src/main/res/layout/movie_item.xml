@@ -3,9 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_margin="5dp"
     android:layout_height="wrap_content">
-
+    //NOTE: THERE IS TEXT, IT'S JUST WHITE
     <ImageView
         android:id="@+id/movieImage"
         android:layout_width="90dp"
@@ -14,7 +13,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="5dp"
-        app:srcCompat="@android:color/background_dark" android:contentDescription="@string/todo" android:layout_marginEnd="5dp" />
+        android:layout_margin="5dp"
+        app:srcCompat="@android:color/background_dark"
+        android:contentDescription="movieImage"
+        android:layout_marginEnd="5dp" />
 
     <TextView
         android:id="@+id/movieTitle"
@@ -26,17 +28,31 @@
         android:layout_toEndOf="@+id/movieImage"
         android:layout_toRightOf="@+id/movieImage"
         android:text="@string/movietitle"
-        android:textAppearance="@android:style/TextAppearance.Large" />
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/titleRed"
+        android:textStyle="bold"
+        />
+
 
     <TextView
         android:id="@+id/movieOverview"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/movieTitle"
         android:layout_toEndOf="@+id/movieImage"
         android:layout_toRightOf="@+id/movieImage"
+
         android:text="@string/overview_and_synopsis"
-        android:textAppearance="@android:style/TextAppearance.Medium" />
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="@android:color/white"/>
+        //tried to do this layout but doesn't work very well
+        //android:maxLines = "7"
+        //android:scrollbars = "vertical"
+
+
+
+
+
 </RelativeLayout>
