@@ -61,7 +61,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
         //load image using GLIDe
         GlideApp.with(context)
                 .load(imageURL)
-                .apply(new RequestOptions().bitmapTransform(new RoundedCorners(20)))
+                .apply(new RequestOptions().bitmapTransform(new RoundedCorners(20))) //check if this is alright
                 .placeholder(R.drawable.flicks_movie_placeholder)
                 .error(R.drawable.flicks_movie_placeholder)
                 .into(holder.posterImage);
