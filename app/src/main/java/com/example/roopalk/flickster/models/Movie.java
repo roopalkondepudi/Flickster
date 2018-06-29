@@ -2,21 +2,31 @@ package com.example.roopalk.flickster.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 /**
  * Created by roopalk on 6/27/18.
  */
 
+@Parcel
 public class Movie
 {
-    private String title;
-    private String overview;
-    private String posterPath;
+    String title;
+    String overview;
+    String posterPath;
+    String backdropPath;
+    Double voteAverage;
+
+    //empty, no-arg constructor required for Parcel
+    public Movie() {
+    }
 
     public Movie(JSONObject object) throws JSONException {
         title = object.getString("title");
         overview = object.getString("overview");
         posterPath = object.getString("poster_path");
+        backdropPath = object.getString("backdrop_path");
+        voteAverage = object.getDouble("vote_average");
     }
 
     public String getTitle() {
@@ -28,6 +38,15 @@ public class Movie
     }
 
     public String getPosterPath() {
+
         return posterPath;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
+    public Double getVoteAverage() {
+        return voteAverage;
     }
 }
