@@ -22,6 +22,7 @@ import org.parceler.Parcels;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cz.msebera.android.httpclient.Header;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -84,6 +85,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 .into(ivPosterImage);
     }
 
+    @OnClick(R.id.ivPosterImage)
     public void onClick(View view)
     {
         getTrailerURL(movie);
@@ -95,7 +97,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         String URL = API_BASE_URL + "/movie/" + movie.getId() + "/videos";
 
         RequestParams params = new RequestParams();
-        params.put(API_KEY_PARAM, getString(R.string.youtube_api_key));
+        params.put(API_KEY_PARAM, getString(R.string.api_key));
 
         //execute a GET request expecting a JSON Array request
         client.get(URL, params, new JsonHttpResponseHandler()
@@ -109,7 +111,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
                     {
                         key = results.getJSONObject(0).getString("key");
                         Intent intent = new Intent(getBaseContext(), MovieTrailerActivity.class);
-                        intent.putExtra("key", key);
+                        intent.putExtra("key", Parcels.wrap(key));
+                        startActivity(intent);
                     }
                     Log.i(TAG, String.format("Loaded trailer of this movie: %s", movie.getTitle()));
                 }

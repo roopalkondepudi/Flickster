@@ -94,7 +94,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
     }
 
     //create the viewholder
-    public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
         //track view objects
         @Nullable @BindView(R.id.movieImage) ImageView posterImage;

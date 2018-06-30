@@ -1,6 +1,5 @@
 package com.example.roopalk.flickster;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -8,6 +7,8 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
+
+import org.parceler.Parcels;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,8 +23,8 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         ButterKnife.bind(this);
 
 
-        Intent received = getIntent();
-        final String videoID = received.getStringExtra("key");
+        final String videoID = Parcels.unwrap(getIntent().getParcelableExtra("key"));
+
 
         //resolve playerView from layout
         //done using ButterKnife
