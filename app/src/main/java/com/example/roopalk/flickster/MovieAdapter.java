@@ -132,6 +132,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
 
                 //create intent for new activity
                 Intent intent = new Intent(context, MovieDetailsActivity.class);
+                intent.putExtra("image", Parcels.wrap(config));
 
                 //serialize the movie using Parceler
                 intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));

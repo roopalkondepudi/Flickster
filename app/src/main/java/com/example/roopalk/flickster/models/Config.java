@@ -3,11 +3,13 @@ package com.example.roopalk.flickster.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 /**
  * Created by roopalk on 6/27/18.
  */
 
+@Parcel
 public class Config {
     //base URL for loading images
     String baseUrl;
@@ -15,6 +17,11 @@ public class Config {
     String posterSize;
     //backdrop size
     String backdropSize;
+
+    public Config()
+    {
+
+    }
 
     public Config(JSONObject object) throws JSONException {
         JSONObject images = object.getJSONObject("images");

@@ -32,6 +32,7 @@ public class MovieListActivity extends AppCompatActivity {
     public final static String API_KEY_PARAM = "api_key";
     //tag for logging from this activity
     public final static String TAG = "MoveListActivity";
+    //base url for YouTube
 
     //declare the client
     AsyncHttpClient client;
@@ -84,7 +85,7 @@ public class MovieListActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 //load the results into movies list
                 try {
-                    JSONArray results = response.getJSONArray("results");
+                    JSONArray  results = response.getJSONArray("results");
                     //iterate through result set and create Movie objects
                     for(int i = 0; i < results.length(); i++)
                     {
